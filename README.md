@@ -4,19 +4,46 @@ Dashboard untuk monitoring server secara visual.
 
 ## Features
 
-- Java process monitoring
-- Python process monitoring
-- Disk capacity monitoring
-- Top 10 largest files
+- Monitor Java process
+- Monitor Python process
+- Monitor disk capacity
+- Monitor top 10 largest files
 - Server health monitoring
 
 ## Tech Stack
 
+### Frontend
+
+- React.js
+- Vite
+- JavaScript
+
+### Backend
+
 - Node.js
 - Express.js
-- React.js
-- JavaScript
+
+### Server
+
+- VPS
 - Linux
-- Vitest
-- Supertest
-- GitHub Actions
+- SSH
+
+### Version Control
+
+- Git
+- GitHub
+
+## Architecture
+
+```text
+React Dashboard
+       |
+       | REST API
+       v
+Node.js + Express
+       |
+       | SSH
+       v
+Private VPS
+```
