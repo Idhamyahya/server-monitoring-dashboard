@@ -39,19 +39,15 @@
 //   privateKey,
 // });
 import "dotenv/config";
-
+import { serverCommands } from "../commands/serverCommands.js";
 import { executeCommand } from "../services/sshService.js";
 
 try {
-  const result = await executeCommand("hostname");
-
-  console.log("SSH berhasil");
-  console.log("Hostname:", result);
-
-  const uptime = await executeCommand("uptime");
-  console.log("uptime");
-  console.log(uptime);
+  // const result = await executeCommand("ps aux | grep '[j]ava'");
+  const java = await executeCommand(serverCommands.java);
+  console.log(java);
+  // const java = console.log("Java process  :");
 } catch (error) {
-  console.error("SSH gagal");
+  console.error("Java process gagal");
   console.error(error.message);
 }
