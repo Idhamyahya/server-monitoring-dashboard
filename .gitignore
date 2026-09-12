@@ -25,6 +25,8 @@ build/
 # SSH private keys
 *.pem
 *.key
+*.ppk
+vps_key
 
 # Coverage
 coverage/

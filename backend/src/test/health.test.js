@@ -1,13 +1,20 @@
 import test from "node:test";
-import assert from "node:assert/strict";
+import assert from "node:assert";
+import request from "supertest";
 
-test("health API harus mengembalikan status OK", async () => {
-  const response = await fetch("http://localhost:3000/api/health");
+import app from "../app.js";
 
-  assert.equal(response.status, 200);
+test("GET /api/health harus mengembalikan status 200", async () => {
+  const response = await request(app).get("/api/health");
 
-  const body = await response.json();
+  assert.strictEqual(response.statusCode, 200);
+});
 
-  assert.equal(body.success, true);
-  assert.equal(body.message, "Backend monitoring berjalan");
+test("GET /api/health harus mengembalikan response yang benar", async () => {
+  const response = await request(app).get("/api/health");
+
+  assert.deepStrictEqual(response.body, {
+    success: true,
+    message: "Monitoring API is running",
+  });
 });
