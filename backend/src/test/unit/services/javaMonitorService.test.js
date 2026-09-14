@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert";
 
-import { getJavaProcesses } from "../../../src/services/javaMonitorService.js";
+import { getJavaProcesses } from "../../../services/javaMonitorService.js";
 
 test("service Java harus mengambil dan memparse process Java", async () => {
   const mockCommandExecutor = async (command) => {
