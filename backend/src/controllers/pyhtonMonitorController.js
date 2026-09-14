@@ -11,7 +11,7 @@ export function createPyhtonMonitorController(
         data: process,
       });
     } catch (error) {
-      console.error("Gagal mengambil prose python", error.message);
+      console.error("Gagal mengambil proses python : ", error.message);
       res.status(500).json({
         success: false,
         message: "Gagal mengambil proses python",
