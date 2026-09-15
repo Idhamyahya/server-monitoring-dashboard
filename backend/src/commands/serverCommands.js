@@ -3,6 +3,6 @@ export const serverCommands = {
   python: "ps aux | grep '[p]ython'",
   hostname: "hostname",
   memory: "free -h",
-  disk: "df -h",
+  disk: "df -h /",
   uptime: "uptime",
 };
