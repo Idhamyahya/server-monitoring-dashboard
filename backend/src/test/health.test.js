@@ -18,3 +18,8 @@ test("GET /api/health harus mengembalikan response yang benar", async () => {
     message: "Monitoring API is running",
   });
 });
+test("POST /api/health harus mengembalikan status 404", async () => {
+  const response = await request(app).post("/api/health");
+
+  assert.strictEqual(response.statusCode, 404);
+});
