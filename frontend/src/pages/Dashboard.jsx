@@ -51,6 +51,25 @@ function Dashboard() {
     <main className="min-h-screen bg-slate-100 p-4 md:p-6">
       <div className="mx-auto max-w-7xl space-y-6">
         <Header />
+        <div className="rounded-xl border border-red-200 bg-red-50 p-6">
+          <h2 className="font-bold text-red-700">Monitoring Error</h2>
+
+          <p className="mt-1 text-sm text-red-600">
+            Gagal mengambil data monitoring VPS.
+          </p>
+        </div>
+        <div className="p-6 text-center text-sm text-slate-500">
+          Tidak ada proses yang ditemukan.
+        </div>
+        <div className="rounded-xl bg-white p-6 shadow-sm">
+          <p className="text-sm text-slate-500">Loading monitoring data...</p>
+        </div>
+        <button
+          type="button"
+          className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
+        >
+          Refresh
+        </button>
         <p className="text-sm text-slate-500">
           Last updated: 17 September 2026 14:00
         </p>
