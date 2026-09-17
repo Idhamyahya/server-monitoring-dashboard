@@ -1,12 +1,13 @@
+import DiskCard from "../components/DiskCard";
 import Header from "../components/Header";
-import StatusCard from "../components/StatusCard";
-import ProcessCard from "../components/ProcessCard";
+// import StatusCard from "../components/StatusCard";
+// import ProcessCard from "../components/ProcessCard";
 
 function Dashboard() {
   return (
     <main className="min-h-screen flex flex-col gap-1 bg-slate-100 ">
       <Header />
-      <StatusCard
+      {/* <StatusCard
         title="VPS Status"
         value="ONLINE"
         description="Server dapat diakses"
@@ -22,7 +23,8 @@ function Dashboard() {
         title="Python"
         count={2}
         description="Python processes running"
-      />
+      /> */}
+      <DiskCard usePercent={72} used="72 GB" available="28 GB" />
     </main>
   );
 }
