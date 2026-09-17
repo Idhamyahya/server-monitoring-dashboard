@@ -1,11 +1,11 @@
-import "./App.css";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="app">
-      <h1>VPS Monitoring Dashboard</h1>
-
-      <p>Monitoring VPS dari browser.</p>
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="text-center text-white">
+        <Dashboard />
+      </div>
     </div>
   );
 }
