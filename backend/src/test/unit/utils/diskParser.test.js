@@ -33,3 +33,8 @@ test("test parser harus mengembalikan null jika output tidak lengkap", () => {
 
   assert.deepStrictEqual(result, null);
 });
+test("parser disk harus mengembalikan null jika output hanya whitespace", () => {
+  const result = parseDiskUsage("   \n   ");
+
+  assert.strictEqual(result, null);
+});

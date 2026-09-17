@@ -42,3 +42,8 @@ test("test parser largest files harus mengembalikan path yang memiliki spasi", (
     },
   ]);
 });
+test("parser largest files harus mengembalikan array kosong jika output hanya whitespace", () => {
+  const result = parseLargestFiles("   \n   ");
+
+  assert.deepStrictEqual(result, []);
+});

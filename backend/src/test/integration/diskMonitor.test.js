@@ -4,6 +4,7 @@ import request from "supertest";
 import express from "express";
 
 import { createDiskMonitorRoutes } from "../../routes/diskMonitorRoutes.js";
+import { getDiskProcesses } from "../../services/diskMonitorService.js";
 test("GET /api/monitor/disk harus mengembalikan data disk", async () => {
   const mockDiskService = async () => ({
     filesystem: "/dev/sda1",
@@ -51,5 +52,14 @@ test("GET /api/monitor/disk harus mengembalikan 500 jika service gagal", async (
   assert.deepStrictEqual(response.body, {
     success: false,
     message: "Gagal mengambil penggunaan disk",
+  });
+});
+test("service disk harus meneruskan error dari command executor", async () => {
+  const mockCommandExecutor = async () => {
+    throw new Error("SSH failed");
+  };
+
+  await assert.rejects(() => getDiskProcesses(mockCommandExecutor), {
+    message: "SSH failed",
   });
 });

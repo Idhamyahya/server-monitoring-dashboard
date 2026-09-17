@@ -4,6 +4,7 @@ import request from "supertest";
 import express from "express";
 
 import { createPythonMonitorRoutes } from "../../routes/pythonMonitorRoutes.js";
+import { getPythonProcesses } from "../../services/pyhtonMonitorService.js";
 test("GET /api/monitor/python harus mengembalikan data Python", async () => {
   const mockPythonService = async () => [
     {
@@ -53,5 +54,14 @@ test("GET /api/monitor/python harus mengembalikan 500 jika service gagal", async
   assert.deepStrictEqual(response.body, {
     success: false,
     message: "Gagal mengambil proses python",
+  });
+});
+test("service Python harus meneruskan error dari command executor", async () => {
+  const mockCommandExecutor = async () => {
+    throw new Error("SSH failed");
+  };
+
+  await assert.rejects(() => getPythonProcesses(mockCommandExecutor), {
+    message: "SSH failed",
   });
 });

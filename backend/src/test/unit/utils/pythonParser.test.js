@@ -23,3 +23,8 @@ test("Parser harus mengembalikan array kosong jika tidak ada proses", () => {
   const result = parsePythonProcesses();
   assert.deepStrictEqual(result, []);
 });
+test("parser Python harus mengembalikan array kosong jika output hanya whitespace", () => {
+  const result = parsePythonProcesses("   \n   ");
+
+  assert.deepStrictEqual(result, []);
+});

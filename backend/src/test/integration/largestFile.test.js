@@ -4,6 +4,7 @@ import request from "supertest";
 import express from "express";
 
 import { createLargestFilesRoutes } from "../../routes/largestFileRoutes.js";
+import { getLargestFile } from "../../services/largestFilesService.js";
 test("GET /api/monitor/largest-files harus mengembalikan file terbesar", async () => {
   const mockLargestFilesService = async () => [
     {
@@ -61,5 +62,14 @@ test("GET /api/monitor/largest-files harus mengembalikan 500 jika service gagal"
   assert.deepStrictEqual(response.body, {
     success: false,
     message: "Gagal mengambil file terbesar",
+  });
+});
+test("service largest files harus meneruskan error dari command executor", async () => {
+  const mockCommandExecutor = async () => {
+    throw new Error("SSH failed");
+  };
+
+  await assert.rejects(() => getLargestFile(mockCommandExecutor), {
+    message: "SSH failed",
   });
 });

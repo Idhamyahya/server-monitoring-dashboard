@@ -23,3 +23,8 @@ test("parser Java harus mengembalikan array kosong jika tidak ada process", () =
 
   assert.deepStrictEqual(result, []);
 });
+test("parser Java harus mengembalikan array kosong jika output hanya whitespace", () => {
+  const result = parseJavaProcess("   \n   ");
+
+  assert.deepStrictEqual(result, []);
+});
