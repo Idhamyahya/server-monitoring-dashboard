@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <header className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
+    <header className="flex flex-col gap-4  bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
       <div>
         <h1 className="text-2xl font-bold text-slate-900">
           VPS Monitoring Dashboard
