@@ -22,6 +22,15 @@ function Dashboard() {
       command: "java -jar service.jar",
     },
   ];
+  const pythonProcesses = [
+    {
+      user: "root",
+      pid: 4321,
+      cpu: "1.5%",
+      memory: "2.1%",
+      command: "python app.py",
+    },
+  ];
 
   const largestFiles = [
     {
@@ -42,7 +51,9 @@ function Dashboard() {
     <main className="min-h-screen bg-slate-100 p-4 md:p-6">
       <div className="mx-auto max-w-7xl space-y-6">
         <Header />
-
+        <p className="text-sm text-slate-500">
+          Last updated: 17 September 2026 14:00
+        </p>
         <section className="grid gap-4 md:grid-cols-3">
           <StatusCard
             title="VPS Status"
@@ -67,6 +78,7 @@ function Dashboard() {
         <DiskCard usePercent={72} used="72 GB" available="28 GB" />
 
         <ProcessTable title="Java Processes" processes={javaProcesses} />
+        <ProcessTable title="Python Processes" processes={pythonProcesses} />
 
         <LargestFilesTable files={largestFiles} />
       </div>
