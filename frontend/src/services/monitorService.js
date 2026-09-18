@@ -7,3 +7,11 @@ export async function getJavaProcess() {
 export async function getPythonProcess() {
   return get("/monitor/python");
 }
+
+export async function getDiskProcess() {
+  return get("/monitor/disk");
+}
+
+export async function getLargestFiles() {
+  return get("/monitor/largestFile");
+}
