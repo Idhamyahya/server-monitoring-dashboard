@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
-import { getHealth } from "./services/healthService.js";
+import { getPythonProcess } from "./services/monitorService.js";
 
 function App() {
-  const [message, setMessage] = useState("");
+  const [data, setData] = useState("");
   useEffect(() => {
-    async function loadHealth() {
+    async function loadPython() {
       try {
-        const result = await getHealth("/health");
-        setMessage(result.message);
+        const result = await getPythonProcess();
+        setData(result);
       } catch (error) {
-        setMessage(error.message);
+        console.error(error);
       }
     }
-    loadHealth();
+    loadPython();
   }, []);
   return (
     <div>
-      <h1>VPS Monitoring Dashboard</h1>
-
-      <p>API: {import.meta.env.VITE_API_URL}</p>
-      <p>Health: {message}</p>
+      <h1>Python Monitoring</h1>
+      <pre className="mt-4">{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
