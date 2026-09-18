@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { get } from "./services/apiClient.js";
+import { getHealth } from "./services/healthService.js";
 
 function App() {
   const [message, setMessage] = useState("");
   useEffect(() => {
     async function loadHealth() {
       try {
-        const result = await get("/health");
+        const result = await getHealth("/health");
         setMessage(result.message);
       } catch (error) {
         setMessage(error.message);
